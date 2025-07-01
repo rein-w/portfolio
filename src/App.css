@@ -32,21 +32,21 @@
 
 .header {
   font-family: 'Inter', sans-serif; /* Use the second font for headers */
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
   font-family: 'Inter', sans-serif; /* Use the 'Inter' font */
   font-weight: 400; /* You can adjust the weight */
-  font-size: 1.5rem; /* You can adjust the size */
+  font-size: 1.2rem; /* You can adjust the size */
   margin-bottom: 1rem;
 }
 
 .subtext {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
-  font-size: 1.3rem; /* Adjust this value to control the size */
+  font-size: 1rem; /* Adjust this value to control the size */
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 2rem;
 }
@@ -85,7 +85,7 @@
   flex-direction: column;
 
   /* --- Adjust these values --- */
-  padding-top: 6rem; /* Controls the top space */
+  padding-top: 4rem; /* Controls the top space */
   padding-right: 2rem;
   padding-bottom: 6rem;
   padding-left: 2rem;
@@ -95,7 +95,7 @@
   width: 60%;
 
   /* --- Adjust these values --- */
-  padding-top: 6rem; /* Controls the top space */
+  padding-top: 4rem; /* Controls the top space */
   padding-right: 2rem;
   padding-bottom: 4rem;
   padding-left: 2rem;
@@ -128,7 +128,7 @@
 }
 
 .project-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   margin-top: 0;
@@ -164,25 +164,6 @@
 }
 
 
-
-
-/* Text and element styling */
-.header {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-}
-
-.subtext {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 2rem;
-}
-
 .navigation-menu {
   display: flex;
   flex-direction: column;
@@ -194,7 +175,7 @@
 
 /* --- Navigation Link Styling --- */
 .navigation-menu a {
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
   transition: color 0.25s;
@@ -253,7 +234,7 @@
 /* --- Right Container Section Headers --- */
 .right-container .content-section p {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 1.3rem; /* Same font size as .subtext */
+  font-size: 1rem; /* Same font size as .subtext */
   font-weight: 400; /* Keep it bold to look like a header */
   color: rgba(255, 255, 255, 0.80); /* A brighter color for headers */
   margin-bottom: 1.5rem;
