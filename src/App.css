@@ -80,10 +80,10 @@
   width: 40%;
   position: sticky;
   top: 0;
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  
+
   /* --- Adjust these values --- */
   padding-top: 6rem; /* Controls the top space */
   padding-right: 2rem;
@@ -93,7 +93,7 @@
 
 .right-container {
   width: 60%;
-  
+
   /* --- Adjust these values --- */
   padding-top: 6rem; /* Controls the top space */
   padding-right: 2rem;
@@ -124,24 +124,51 @@
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
-  padding-top: 4rem
+  padding-top: 4rem;
+  align-items: flex-start; 
 }
 
+/* --- Navigation Link Styling --- */
 .navigation-menu a {
   font-size: 1.3rem;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
   transition: color 0.25s;
+
+  /* New styles for the animation */
+  display: flex;
+  align-items: center;
 }
 
-.navigation-menu a:hover {
+/* The ::before pseudo-element creates the line */
+.navigation-menu a::before {
+  content: ''; /* Must be present for the element to show */
+  height: 2px; /* The thickness of the line */
+  width: 0; /* The line starts with no width */
+  background-color: #2eba7c; /* The color of the line */
+  
+  /* Animate the width and margin for a smooth effect */
+  transition: width 0.3s ease, margin-right 0.3s ease;
+}
+
+/* When a link is hovered OR has the .active class... */
+.navigation-menu a:hover::before,
+.navigation-menu a.active::before {
+  width: 3rem; 
+  margin-right: 0.75rem; 
+}
+
+/* Also make the text color change for the active link */
+.navigation-menu a:hover,
+.navigation-menu a.active {
   color: #2eba7c;
 }
 
+
 .social-media-links {
   display: flex;
-  gap: 1.5rem; 
-  margin-top: auto; 
+  gap: 1.5rem;
+  margin-top: auto;
 }
 
 .social-media-links a {
@@ -154,8 +181,8 @@
 }
 
 .social-media-links svg {
-  width: 40px; 
-  height: 40px; 
+  width: 40px;
+  height: 40px;
   fill: currentColor;
 }
 
@@ -169,7 +196,7 @@
     flex-direction: column;
     gap: 0;
   }
-  
+
   .left-container {
     position: static;
     width: 100%;
