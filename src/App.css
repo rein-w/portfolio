@@ -30,6 +30,29 @@
   padding: 2em;
 }
 
+.header {
+  font-family: 'Inter', sans-serif; /* Use the second font for headers */
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif; /* Use the 'Inter' font */
+  font-weight: 400; /* You can adjust the weight */
+  font-size: 1.5rem; /* You can adjust the size */
+  margin-bottom: 1rem;
+}
+
+.subtext {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem; /* Adjust this value to control the size */
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+}
+
+
+
 .read-the-docs {
   color: #888;
 }
@@ -64,7 +87,7 @@
   /* --- Adjust these values --- */
   padding-top: 6rem; /* Controls the top space */
   padding-right: 2rem;
-  padding-bottom: 4rem;
+  padding-bottom: 6rem;
   padding-left: 2rem;
 }
 
@@ -101,10 +124,11 @@
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
+  padding-top: 4rem
 }
 
 .navigation-menu a {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
   transition: color 0.25s;
@@ -122,7 +146,7 @@
 
 .social-media-links a {
   color: rgba(255, 255, 255, 0.7);
-  transition: color 0.25s;
+  transition: color 0.5s;
 }
 
 .social-media-links a:hover {
@@ -130,8 +154,8 @@
 }
 
 .social-media-links svg {
-  width: 28px; 
-  height: 28px; 
+  width: 40px; 
+  height: 40px; 
   fill: currentColor;
 }
 
