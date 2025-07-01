@@ -44,34 +44,42 @@
   z-index: -1;
 }
 
+/* Layout styles */
 .main-container {
-  /* This container no longer needs flex properties for layout */
+  display: flex;
+  align-items: flex-start; /* Aligns the top of the containers */
+  gap: 2rem; /* Creates space between the two containers */
 }
 
-.content-wrapper {
-  max-width: 1280px;
-  margin: 0 auto;
-  position: relative;
-}
+/* src/app.css */
 
 .left-container {
-  position: fixed;
-  width: calc(1280px * 0.4); 
-  height: 100vh;
-  padding: 4rem; /* Changed to a balanced padding */
+  width: 40%;
+  position: sticky;
+  top: 0;
+  height: 100vh; 
   display: flex;
   flex-direction: column;
+  
+  /* --- Adjust these values --- */
+  padding-top: 6rem; /* Controls the top space */
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
 }
 
 .right-container {
-  margin-left: calc(1280px * 0.4); 
-  width: calc(1280px * 0.6);      
-  height: 100vh;
-  overflow-y: auto; 
-  padding: 4rem; /* Matched padding for consistency */
-  text-align: center;
+  width: 60%;
+  
+  /* --- Adjust these values --- */
+  padding-top: 6rem; /* Controls the top space */
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
 }
 
+
+/* Text and element styling */
 .header {
   font-size: 3rem;
   margin-bottom: 0.5rem;
@@ -129,21 +137,26 @@
 
 /* --- Mobile Responsive Styles --- */
 @media (max-width: 768px) {
-  .content-wrapper {
-    max-width: 100%;
+  #root {
+    padding: 0;
+  }
+
+  .main-container {
+    flex-direction: column;
+    gap: 0;
   }
   
-  .left-container, .right-container {
+  .left-container {
     position: static;
     width: 100%;
     height: auto;
-    margin-left: 0;
-    padding: 2rem 1.5rem;
     text-align: center;
+    padding: 2rem;
   }
-  
-  .main-container {
-    flex-direction: column;
+
+  .right-container {
+    width: 100%;
+    padding: 2rem;
   }
 
   .social-media-links {

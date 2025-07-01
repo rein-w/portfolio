@@ -13,6 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* This is the key fix */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -24,11 +31,12 @@ a:hover {
 
 body {
   margin: 0;
-  overflow: hidden; /* Prevents the main page from scrolling */
 }
 
 #root {
-  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 h1 {
@@ -68,9 +76,4 @@ button:focus-visible {
   }
 }
 
-/* --- Mobile Responsive Styles --- */
-@media (max-width: 768px) {
-  body {
-    overflow: auto; /* Re-enable scrolling for mobile */
-  }
-}
+/* No mobile styles needed here anymore */
