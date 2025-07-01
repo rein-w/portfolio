@@ -24,15 +24,11 @@ a:hover {
 
 body {
   margin: 0;
+  overflow: hidden; /* Prevents the main page from scrolling */
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 h1 {
@@ -69,5 +65,12 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* --- Mobile Responsive Styles --- */
+@media (max-width: 768px) {
+  body {
+    overflow: auto; /* Re-enable scrolling for mobile */
   }
 }
