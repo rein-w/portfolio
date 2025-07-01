@@ -47,7 +47,7 @@
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
   font-size: 1rem; /* Adjust this value to control the size */
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 2rem;
 }
 
@@ -103,8 +103,10 @@
 
 /* --- Content Section Styling --- */
 .content-section {
-  margin-bottom: 4rem; /* Adds space between the About, Projects, and Kitchen sections */
-  text-align: left; /* Aligns text to the left for better readability */
+  margin-bottom: 4rem; 
+  text-align: left; 
+  scroll-margin-top: 6rem; /* Add this line - matches your container's top padding */
+  margin-bottom: 6rem;
 }
 
 .content-section p {
