@@ -135,7 +135,11 @@
   color: rgba(255, 255, 255, 0.9);
   margin-top: 0;
   margin-bottom: 0.75rem;
-  transition: color 0.3s ease; /* Add a smooth transition for the color change */
+  transition: color 0.3s ease;
+  
+  /* Make the h3 a flex container to align text and icon */
+  display: flex;
+  align-items: center;
 }
 
 /* On hover of the card, change the h3 color */
@@ -143,6 +147,19 @@
   color: #2eba7c;
 }
 
+.project-card .external-link-icon {
+  margin-left: 0.5rem;
+  font-size: 1em; /* Inherit size from the h3 */
+  opacity: 0; /* Start invisible */
+  transform: translate(-5px, -5px); /* Start slightly up and left */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Make the icon visible and animate it on card hover */
+.project-card:hover .external-link-icon {
+  opacity: 1;
+  transform: translate(0, 0);
+}
 
 
 .project-card p {
@@ -228,8 +245,8 @@
 }
 
 .social-media-links svg {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   fill: currentColor;
 }
 

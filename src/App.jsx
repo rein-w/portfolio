@@ -1,38 +1,37 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { FiArrowUpRight } from 'react-icons/fi'; 
 import './App.css';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeLink, setActiveLink] = useState('about');
 
-  // Create refs for each section
-  const aboutRef = useRef(null);
-  const projectsRef = useRef(null);
-  const kitchenRef = useRef(null);
+  // 2. Group refs into a single object for cleaner access
+  const sectionRefs = {
+    about: useRef(null),
+    projects: useRef(null),
+    kitchen: useRef(null),
+  };
+
+  // 3. Memoize the mouse move handler with useCallback
+  const handleMouseMove = useCallback((event) => {
+    setMousePosition({ x: event.clientX, y: event.clientY });
+  }, []); // Empty dependency array means this function is created only once
 
   useEffect(() => {
-    const handleMouseMove = (event) => {
-      setMousePosition({ x: event.clientX, y: event.clientY });
-    };
-
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [handleMouseMove]); // Add handleMouseMove as a dependency
 
+  // 4. Simplify the click handler
   const handleLinkClick = (e, section) => {
     e.preventDefault();
     setActiveLink(section);
-
-    let ref;
-    if (section === 'about') ref = aboutRef;
-    if (section === 'projects') ref = projectsRef;
-    if (section === 'kitchen') ref = kitchenRef;
-
-    ref.current?.scrollIntoView({
+    sectionRefs[section].current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
@@ -87,26 +86,27 @@ function App() {
           </div>
         </div>
         <div className="right-container">
-          {/* Move the ref to the <section> tag */}
-          <section id="about" className="content-section" ref={aboutRef}>
+          <section id="about" className="content-section" ref={sectionRefs.about}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+              I am a technical BA who prioritises human behaviour and experience when developing effective solutions. I believe creative, thoughtful design is just as important as well-defined process definitions- an almost obligate mutualism. Personally, I find great fulfilment in creating solutions that not only tackle the root issue and enhance processes, but are also a genuine joy to use.
             </p>
             <p>
-              Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
+              This line will be a small introduction summary about my current Role in Appsure, and previous technology roles.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+              This line will be about previous experience outside of tech, in real estate, marketing design, also mention bachelor of PR and advertising, learning video editing in primary school (adobe AA and flash, stop motion etc)
             </p>
             <p>
-              Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
+              This line will be a quick short one about my hobbies outside of work.
             </p>
           </section>
 
-          {/* Move the ref to the <section> tag */}
-          <section id="projects" className="content-section" ref={projectsRef}>
+          <section id="projects" className="content-section" ref={sectionRefs.projects}>
+             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
-              <h3>Project Title 1</h3>
+              <h3>Project Title 1
+                <FiArrowUpRight className="external-link-icon" />
+              </h3>
               <p>A brief description of the project, what it does, and the technologies used. Keep it concise but informative.</p>
               <div className="project-tags">
                 <span>React</span>
@@ -114,8 +114,13 @@ function App() {
                 <span>JavaScript</span>
               </div>
             </div>
+            </a>
+
+            <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
-              <h3>Project Title 2</h3>
+              <h3>Project Title 2
+                <FiArrowUpRight className="external-link-icon" />
+              </h3>
               <p>Another project description goes here. Talk about the challenges and what you learned.</p>
               <div className="project-tags">
                 <span>Node.js</span>
@@ -123,8 +128,13 @@ function App() {
                 <span>API</span>
               </div>
             </div>
+            </a>
+
+            <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
-              <h3>Project Title 3</h3>
+              <h3>Project Title 3
+                <FiArrowUpRight className="external-link-icon" />
+              </h3>
               <p>A brief description of the project, what it does, and the technologies used. Keep it concise but informative.</p>
               <div className="project-tags">
                 <span>React</span>
@@ -132,17 +142,18 @@ function App() {
                 <span>JavaScript</span>
               </div>
             </div>
+            </a>
+
           </section>
 
-          {/* Move the ref to the <section> tag */}
-          <section id="kitchen" className="content-section" ref={kitchenRef}>
+          <section id="kitchen" className="content-section" ref={sectionRefs.kitchen}>
             <p>
               This is the kitchen section. You can write about your hobbies, passions, or anything else you'd like to share. It's a place to show a different side of your personality.
             </p>
-                        <p>
+            <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
-                        <p>
+            <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
           </section>
