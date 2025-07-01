@@ -23,7 +23,7 @@ function App() {
       <div
         className="radial-gradient"
         style={{
-          background: `radial-gradient(circle 120 0px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.05), transparent 60%)`
+          background: `radial-gradient(circle 1200px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.05), transparent 60%)`
         }}
       />
       <div>
