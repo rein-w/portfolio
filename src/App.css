@@ -1,10 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -67,6 +60,7 @@
 
 .right-container {
   width: 60%;
+  text-align: center;
 }
 
 .header {
@@ -120,4 +114,28 @@
 .social-media-links svg {
   width: 28px; /* Set icon width */
   height: 28px; /* Set icon height */
+}
+
+/* --- Mobile Responsive Styles --- */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .social-media-links {
+    justify-content: center;
+  }
+
+  .left-container {
+    margin-bottom: 3rem;
+  }
 }

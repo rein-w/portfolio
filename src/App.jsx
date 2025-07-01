@@ -29,8 +29,8 @@ function App() {
       />
       <div className="main-container">
         <div className="left-container">
-          <h1 className="header">Your Name</h1>
-          <h2 className="subtitle">Your Title or Tagline</h2>
+          <h1 className="header">Reinhardt W</h1>
+          <h2 className="subtitle">Technical Business Analyst</h2>
           <p className="subtext">A brief description about you and what you do.</p>
           <nav className="navigation-menu">
             <a href="#about">About</a>
