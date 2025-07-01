@@ -101,6 +101,70 @@
   padding-left: 2rem;
 }
 
+/* --- Content Section Styling --- */
+.content-section {
+  margin-bottom: 4rem; /* Adds space between the About, Projects, and Kitchen sections */
+  text-align: left; /* Aligns text to the left for better readability */
+}
+
+.content-section p {
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+/* --- Project Card Styling --- */
+.project-card {
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem; 
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease; /* Add a smooth transition for the color change */
+}
+
+/* On hover of the card, change the h3 color */
+.project-card:hover h3 {
+  color: #2eba7c;
+}
+
+
+
+.project-card p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.project-tags span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2eba7c;
+  background-color: rgba(46, 186, 124, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+}
+
+
+
 
 /* Text and element styling */
 .header {
@@ -184,6 +248,15 @@
   width: 40px;
   height: 40px;
   fill: currentColor;
+}
+
+/* --- Right Container Section Headers --- */
+.right-container .content-section p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.3rem; /* Same font size as .subtext */
+  font-weight: 400; /* Keep it bold to look like a header */
+  color: rgba(255, 255, 255, 0.80); /* A brighter color for headers */
+  margin-bottom: 1.5rem;
 }
 
 /* --- Mobile Responsive Styles --- */

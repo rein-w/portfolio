@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import './App.css'
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [activeLink, setActiveLink] = useState('about'); // State for the active link
+  const [activeLink, setActiveLink] = useState('about');
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -20,7 +18,6 @@ function App() {
     };
   }, []);
 
-  // Handler to update the active link
   const handleLinkClick = (link) => {
     setActiveLink(link);
   };
@@ -37,10 +34,9 @@ function App() {
         <div className="left-container">
           <h1 className="header">Reinhardt W.</h1>
           <h2 className="subtitle">Technical Business Analyst</h2>
-          <p className="subtext">I enjoy learning, designing, and building— <br></br>
+          <p className="subtext">I enjoy learning, designing, and building— <br />
             both in the realm of technology and in creating tangible products.</p>
           <nav className="navigation-menu">
-            {/* --- Add onClick and className to each link --- */}
             <a
               href="#about"
               className={activeLink === 'about' ? 'active' : ''}
@@ -73,33 +69,57 @@ function App() {
           </div>
         </div>
         <div className="right-container">
-          <div id="about">
-            {/* About section content will go here */}
-            <h1>About Me</h1>
-            <p>This is the about section...</p>
-          </div>
-          <div id="projects">
-            {/* Projects section content will go here */}
-            <h1>My Projects</h1>
-            <p>This is the projects section...</p>
-          </div>
-          <div>
-            <a href="https://vite.dev" target="_blank">
-              <img src={viteLogo} className="logo" alt="Vite logo" />
-            </a>
-            <a href="https://react.dev" target="_blank">
-              <img src={reactLogo} className="logo react" alt="React logo" />
-            </a>
-          </div>
-          <h1>Vite + React</h1>
-          <div className="card">
+          <section id="about" className="content-section">
             <p>
-              Move your mouse around to see the radial gradient effect!
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
             </p>
-          </div>
-          <p className="read-the-docs">
-            Click on the Vite and React logos to learn more
-          </p>
+            <p>
+              Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
+            </p>
+          </section>
+
+          <section id="projects" className="content-section">
+            {/* Project Card 1 */}
+            <div className="project-card">
+              <h3>Project Title 1</h3>
+              <p>A brief description of the project, what it does, and the technologies used. Keep it concise but informative.</p>
+              <div className="project-tags">
+                <span>React</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+            {/* Project Card 2 (you can add more like this) */}
+            <div className="project-card">
+              <h3>Project Title 2</h3>
+              <p>Another project description goes here. Talk about the challenges and what you learned.</p>
+              <div className="project-tags">
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>API</span>
+              </div>
+            </div>
+            {/* Project Card 3 */}
+            <div className="project-card">
+              <h3>Project Title 3</h3>
+              <p>A brief description of the project, what it does, and the technologies used. Keep it concise but informative.</p>
+              <div className="project-tags">
+                <span>React</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+
+
+
+
+          </section>
+
+          <section id="kitchen" className="content-section">
+            <p>
+              This is the kitchen section. You can write about your hobbies, passions, or anything else you'd like to share. It's a place to show a different side of your personality.
+            </p>
+          </section>
         </div>
       </div>
     </>
