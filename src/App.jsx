@@ -88,6 +88,7 @@ function App() {
         </div>
         <div className="right-container">
           <section id="about" className="content-section" ref={sectionRefs.about}>
+            <h2 className="mobile-header">About</h2>
             <p>
               I'm an analyst who prioritises human behaviour and experience when developing effective solutions. I believe creative, thoughtful design is just as important as well-defined process definitions- an almost obligate mutualism. Personally, I find great fulfilment in creating solutions that not only tackle the root issue and enhance processes, but are also a genuine joy to use.
             </p>
@@ -103,6 +104,7 @@ function App() {
           </section>
 
           <section id="projects" className="content-section" ref={sectionRefs.projects}>
+            <h2 className="mobile-header">Projects</h2>
              <a href="#portfolio" className="project-link">
             <div className="project-card">
                   <CiUser className="project-icon" />
@@ -146,6 +148,7 @@ function App() {
           </section>
 
           <section id="kitchen" className="content-section" ref={sectionRefs.kitchen}>
+            <h2 className="mobile-header">Kitchen</h2>
             <p>
               My main hobby outside of work is cooking. It's a world that branches out endlessly, with recipes that vary across cultures, subcultures, continents, and even small regions. There are countless variations and so much to learn. I'm fascinated by how old and new techniques still coexist today, from the molcajete to bluetooth sous vide.
             </p>
@@ -161,7 +164,7 @@ function App() {
     <h3>Reinhardt's Kitchen
         <FiArrowUpRight className="external-link-icon" />
     </h3>
-    <p>A place to capture my dishes, menus, and events.</p>
+    <p>A place to capture my dishes, menus, and events. <i>Work in progress.</i></p>
   </div>
 </a>
             <p>

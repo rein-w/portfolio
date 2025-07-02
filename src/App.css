@@ -306,6 +306,19 @@
   animation: logo-spin 1s infinite;
 }
 
+
+
+/* --- Mobile Responsive Styles --- */
+
+/* Add this new rule for the mobile headers */
+.mobile-header {
+  display: none; /* Hidden by default on desktop */
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center; /* Center the headers on mobile */
+}
+
 /* --- Mobile Responsive Styles --- */
 @media (max-width: 768px) {
   #root {
@@ -323,6 +336,17 @@
     height: auto;
     text-align: center;
     padding: 2rem;
+    padding-bottom: 0; /* Reduce bottom padding since nav is gone */
+  }
+
+  /* Hide the desktop navigation menu on mobile */
+  .navigation-menu {
+    display: none;
+  }
+
+  /* Show the new mobile headers */
+  .mobile-header {
+    display: block;
   }
 
   .right-container {
