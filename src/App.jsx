@@ -88,30 +88,27 @@ function App() {
         <div className="right-container">
           <section id="about" className="content-section" ref={sectionRefs.about}>
             <p>
-              I am a technical BA who prioritises human behaviour and experience when developing effective solutions. I believe creative, thoughtful design is just as important as well-defined process definitions- an almost obligate mutualism. Personally, I find great fulfilment in creating solutions that not only tackle the root issue and enhance processes, but are also a genuine joy to use.
+              I'm an analyst who prioritises human behaviour and experience when developing effective solutions. I believe creative, thoughtful design is just as important as well-defined process definitions- an almost obligate mutualism. Personally, I find great fulfilment in creating solutions that not only tackle the root issue and enhance processes, but are also a genuine joy to use.
             </p>
             <p>
-              This line will be a small introduction summary about my current Role in Appsure, and previous technology roles.
+              At the moment, I'm a Technical Business Analyst at <a href="https://www.appsure.com.au" target="_blank"><b>Appsure</b></a>, working in a close-knit team of seven. As a result, I've become a jack of all trades: leading business analysis, managing clients, digitising complex insurance pricing and product configuration, designing UX/UI for custom screens, driving marketing efforts, and constantly finding new ways to improve our core offering.
             </p>
             <p>
-              This line will be about previous experience outside of tech, in real estate, marketing design, also mention bachelor of PR and advertising, learning video editing in primary school (adobe AA and flash, stop motion etc)
+              Before I joined the technology industry, I worked in marketing, where I created campaigns and marketing artefacts, as well as in real estate, assisting with sales and property management. Through these experiences, I learned the importance of exposure and design, but also the necessity of having a solid product to back up any claims. This principle applies across all types of offerings, from SaaS to physical goods.
             </p>
-            <p>
-              This line will be a quick short one about my hobbies outside of work.
+              <p>
+              Beyond work, I'm either cooking, leather crafting, gem hunting, or building some more. Maybe one day I'll re-ignite my early tween <a href="https://youtu.be/AgY_ffcXlOQ" target="_blank"><b>VFX</b></a> and <a href="https://youtu.be/CvfrsX2jdbs" target="_blank"><b>stop-motion</b></a> dreams.
             </p>
           </section>
 
           <section id="projects" className="content-section" ref={sectionRefs.projects}>
-             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
+             <a className="project-link">
             <div className="project-card">
-              <h3>Project Title 1
-                <FiArrowUpRight className="external-link-icon" />
+              <h3>This Portfolio
               </h3>
-              <p>A brief description of the project, what it does, and the technologies used. Keep it concise but informative.</p>
+              <p>I wanted to create a casual online portfolio that I can share and refer to, and continuously upgrade over time as I develop new skills.</p>
               <div className="project-tags">
-                <span>React</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
+                <span>React + Vite</span>
               </div>
             </div>
             </a>

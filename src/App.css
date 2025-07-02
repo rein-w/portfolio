@@ -115,6 +115,17 @@
   margin-bottom: 1rem;
 }
 
+/* --- Content Section Link Styling --- */
+.content-section a {
+  color: rgba(255, 255, 255, 1); /* Sets the link color to your brand color */
+  font-weight: 500; /* Makes the link text slightly bolder */
+  transition: color 0.5s ease;
+}
+
+.content-section a:hover {
+  color: #FF6500; /* Changes the color to white on hover */
+}
+
 /* --- Project Card Styling --- */
 .project-card {
   padding: 1.5rem 1.5rem 1.5rem 1.5rem; 
