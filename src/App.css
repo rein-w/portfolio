@@ -30,31 +30,31 @@
   padding: 2em;
 }
 
+/* --- Consolidated Header and Subtitle Styles --- */
 .header {
-  font-family: 'Inter', sans-serif; /* Use the second font for headers */
+  font-family: 'Inter', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  font-family: 'Inter', sans-serif; /* Use the 'Inter' font */
-  font-weight: 400; /* You can adjust the weight */
-  font-size: 1.2rem; /* You can adjust the size */
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 
 .subtext {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
-  font-size: 1rem; /* Adjust this value to control the size */
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 2rem;
 }
 
 .subtext-line-break {
-  display: block; /* Creates the line break */
+  display: block;
 }
-
 
 .read-the-docs {
   color: #888;
@@ -70,14 +70,12 @@
   z-index: -1;
 }
 
-/* Layout styles */
+/* --- Layout Styles --- */
 .main-container {
   display: flex;
-  align-items: flex-start; /* Aligns the top of the containers */
-  gap: 2rem; /* Creates space between the two containers */
+  align-items: flex-start;
+  gap: 2rem;
 }
-
-/* src/app.css */
 
 .left-container {
   width: 40%;
@@ -86,29 +84,18 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-
-  /* --- Adjust these values --- */
-  padding-top: 4rem; /* Controls the top space */
-  padding-right: 2rem;
-  padding-bottom: 6rem;
-  padding-left: 2rem;
+  padding: 4rem 2rem 6rem 2rem;
 }
 
 .right-container {
   width: 60%;
-
-  /* --- Adjust these values --- */
-  padding-top: 4rem; /* Controls the top space */
-  padding-right: 2rem;
-  padding-bottom: 4rem;
-  padding-left: 2rem;
+  padding: 4rem 2rem;
 }
 
 /* --- Content Section Styling --- */
 .content-section {
-  margin-bottom: 4rem; 
   text-align: left; 
-  scroll-margin-top: 6rem; /* Add this line - matches your container's top padding */
+  scroll-margin-top: 6rem;
   margin-bottom: 6rem;
 }
 
@@ -118,29 +105,34 @@
   margin-bottom: 1rem;
 }
 
-/* --- Content Section Link Styling --- */
 .content-section a {
-  color: rgba(255, 255, 255, 1); /* Sets the link color to your brand color */
-  font-weight: 500; /* Makes the link text slightly bolder */
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
   transition: color 0.5s ease;
 }
 
 .content-section a:hover {
-  color: #FF6500; /* Changes the color to white on hover */
+  color: #FF6500;
 }
 
 /* --- Project Card Styling --- */
-.project-card {
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem; 
+.project-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   margin-bottom: 1.5rem;
+}
+
+.project-card {
+  padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.05);
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  position: relative; /* Add this to position the new icon */
+  position: relative;
 }
 
-.project-card:hover {
+.project-link:hover .project-card {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -151,27 +143,29 @@
   margin-top: 0;
   margin-bottom: 0.75rem;
   transition: color 0.3s ease;
-  
-  /* Make the h3 a flex container to align text and icon */
   display: flex;
   align-items: center;
 }
 
-/* On hover of the card, change the h3 color */
-.project-card:hover h3 {
+/* Default card hover state (green) */
+.project-link:hover .project-card:not(.kitchen-card) h3 {
   color: #2eba7c;
+}
+
+/* Modifier for the Kitchen Card (orange) */
+.project-link:hover .project-card.kitchen-card h3 {
+  color: #FF6500;
 }
 
 .project-card .external-link-icon {
   margin-left: 0.5rem;
-  font-size: 1em; /* Inherit size from the h3 */
-  opacity: 0; /* Start invisible */
-  transform: translate(-5px, -5px); /* Start slightly up and left */
+  font-size: 1em;
+  opacity: 0;
+  transform: translate(-5px, -5px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Make the icon visible and animate it on card hover */
-.project-card:hover .external-link-icon {
+.project-link:hover .project-card .external-link-icon {
   opacity: 1;
   transform: translate(0, 0);
 }
@@ -179,7 +173,7 @@
 .project-card p {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1rem;
-  padding-right: 2.5rem; /* Add this to push the text from the right */
+  padding-right: 2.5rem;
 }
 
 .project-icon {
@@ -193,6 +187,11 @@
 
 .project-link:hover .project-icon {
   color: #2eba7c;
+}
+
+/* Modifier for the kitchen card icon hover */
+.project-link:hover .kitchen-card .project-icon {
+    color: #FF6500;
 }
 
 .project-tags {
@@ -210,52 +209,43 @@
   border-radius: 12px;
 }
 
-
+/* --- Navigation & Socials --- */
 .navigation-menu {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
   padding-top: 4rem;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
 
-/* --- Navigation Link Styling --- */
 .navigation-menu a {
   font-size: 1rem;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
   transition: color 0.25s;
-
-  /* New styles for the animation */
   display: flex;
   align-items: center;
 }
 
-/* The ::before pseudo-element creates the line */
 .navigation-menu a::before {
-  content: ''; /* Must be present for the element to show */
-  height: 2px; /* The thickness of the line */
-  width: 0; /* The line starts with no width */
-  background-color: #2eba7c; /* The color of the line */
-  
-  /* Animate the width and margin for a smooth effect */
+  content: '';
+  height: 2px;
+  width: 0;
+  background-color: #2eba7c;
   transition: width 0.3s ease, margin-right 0.3s ease;
 }
 
-/* When a link is hovered OR has the .active class... */
 .navigation-menu a:hover::before,
 .navigation-menu a.active::before {
-  width: 3rem; 
-  margin-right: 0.75rem; 
+  width: 3rem;
+  margin-right: 0.75rem;
 }
 
-/* Also make the text color change for the active link */
 .navigation-menu a:hover,
 .navigation-menu a.active {
   color: #2eba7c;
 }
-
 
 .social-media-links {
   display: flex;
@@ -278,13 +268,16 @@
   fill: currentColor;
 }
 
-/* --- Right Container Section Headers --- */
-.right-container .content-section p {
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 1rem; /* Same font size as .subtext */
-  font-weight: 400; /* Keep it bold to look like a header */
-  color: rgba(255, 255, 255, 0.80); /* A brighter color for headers */
-  margin-bottom: 1.5rem;
+/* --- Footer Icon Styling --- */
+.footer-icon-container {
+  text-align: right; /* Center the icon horizontally */
+  padding-top: 5.5rem; /* Add space above and below the icon */
+}
+
+.footer-icon {
+  width: 50px; /* Set the width of your icon */
+  height: 50px; /* Set the height of your icon */
+  opacity: 0.6;
 }
 
 /* --- Mobile Responsive Styles --- */

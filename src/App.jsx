@@ -152,22 +152,31 @@ function App() {
             <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
-            <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
-                        <div className="project-card">
-              <CiBowlNoodles className="project-icon" />
-              <h3>A Featured Recipe
-                 <FiArrowUpRight className="external-link-icon" />
-              </h3>
-              <p>This is a great place to highlight a specific recipe, a cooking technique you've mastered, or a favorite dish you've made recently.</p>
-            </div>
-            </a>
+
+
+<a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
+  {/* Apply both classes here */}
+  <div className="project-card kitchen-card">
+    <CiBowlNoodles className="project-icon" />
+    <h3>A Featured Recipe
+        <FiArrowUpRight className="external-link-icon" />
+    </h3>
+    <p>This is a great place to highlight a specific recipe, a cooking technique you've mastered, or a favorite dish you've made recently.</p>
+  </div>
+</a>
             <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
           </section>
+
+<div className="footer-icon-container">
+            <img src="/fries-small.png" alt="A descriptive alt text for your icon" className="footer-icon" />
+          </div>
+
         </div>
       </div>
     </>
+    
   );
 }
 
