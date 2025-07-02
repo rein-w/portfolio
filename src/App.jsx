@@ -1,34 +1,33 @@
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { useState, useEffect, useRef, useCallback } from 'react'; 
-import { FiArrowUpRight, FiFolder } from 'react-icons/fi';
-import { CiUser, CiAlarmOn, CiRuler } from "react-icons/ci";
+import { FiArrowUpRight } from 'react-icons/fi';
+import { CiUser, CiAlarmOn, CiRuler, CiBowlNoodles } from "react-icons/ci";
 import './App.css';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeLink, setActiveLink] = useState('about');
 
-  // 2. Group refs into a single object for cleaner access
+  // Best Practice 1: Group refs into a single object for cleaner access
   const sectionRefs = {
     about: useRef(null),
     projects: useRef(null),
     kitchen: useRef(null),
   };
 
-  // 3. Memoize the mouse move handler with useCallback
+  // Best Practice 2: Memoize the mouse move handler with useCallback for performance
   const handleMouseMove = useCallback((event) => {
     setMousePosition({ x: event.clientX, y: event.clientY });
   }, []); // Empty dependency array means this function is created only once
 
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove);
-
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [handleMouseMove]); // Add handleMouseMove as a dependency
 
-  // 4. Simplify the click handler
+  // Best Practice 3: Simplify the click handler using the new refs object
   const handleLinkClick = (e, section) => {
     e.preventDefault();
     setActiveLink(section);
@@ -50,9 +49,10 @@ function App() {
         <div className="left-container">
           <h1 className="header">Reinhardt W.</h1>
           <h2 className="subtitle">Technical Business Analyst</h2>
+          {/* Best Practice 4: Use CSS for line breaks instead of <br /> */}
           <p className="subtext">
-            I enjoy learning, designing, and building— <br />
-            both in the realm of technology and in creating tangible products.
+            I enjoy learning, designing, and building—
+            <span className="subtext-line-break">both in the realm of technology and in creating tangible products.</span>
           </p>
           <nav className="navigation-menu">
             <a
@@ -143,17 +143,25 @@ function App() {
               </div>
             </div>
             </a>
-
           </section>
 
           <section id="kitchen" className="content-section" ref={sectionRefs.kitchen}>
             <p>
               This is the kitchen section. You can write about your hobbies, passions, or anything else you'd like to share. It's a place to show a different side of your personality.
             </p>
-                        <p>
+            <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
-                        <p>
+            <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
+                        <div className="project-card">
+              <CiBowlNoodles className="project-icon" />
+              <h3>A Featured Recipe
+                 <FiArrowUpRight className="external-link-icon" />
+              </h3>
+              <p>This is a great place to highlight a specific recipe, a cooking technique you've mastered, or a favorite dish you've made recently.</p>
+            </div>
+            </a>
+            <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
           </section>

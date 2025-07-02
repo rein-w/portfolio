@@ -51,6 +51,9 @@
   margin-bottom: 2rem;
 }
 
+.subtext-line-break {
+  display: block; /* Creates the line break */
+}
 
 
 .read-the-docs {

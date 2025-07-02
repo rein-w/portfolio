@@ -13,7 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* This is the key fix */
+::selection {
+  background-color: #2eba7c; /* Your brand color for the highlight background */
+  color: #252525; /* A contrasting color for the text itself */
+}
+
 *,
 *::before,
 *::after {
