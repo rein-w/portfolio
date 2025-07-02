@@ -4,6 +4,8 @@ import { FiArrowUpRight } from 'react-icons/fi';
 import { CiUser, CiAlarmOn, CiRuler, CiBowlNoodles } from "react-icons/ci";
 import './App.css';
 
+import footerIcon from './assets/fries-small.png'; 
+
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeLink, setActiveLink] = useState('about');
@@ -174,7 +176,7 @@ Above is a link to my “kitchen” website, where I can experiment more with th
           </section>
 
 <div className="footer-icon-container">
-            <img src="/fries-small.png" alt="A descriptive alt text for your icon" className="footer-icon" />
+            <img src={footerIcon} alt="Maccas Fries" className="footer-icon" />
           </div>
 
         </div>
