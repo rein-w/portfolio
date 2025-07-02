@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { FiArrowUpRight } from 'react-icons/fi'; 
+import { useState, useEffect, useRef, useCallback } from 'react'; 
+import { FiArrowUpRight, FiFolder } from 'react-icons/fi';
+import { CiUser, CiAlarmOn, CiRuler } from "react-icons/ci";
 import './App.css';
 
 function App() {
@@ -91,21 +92,21 @@ function App() {
               I'm an analyst who prioritises human behaviour and experience when developing effective solutions. I believe creative, thoughtful design is just as important as well-defined process definitions- an almost obligate mutualism. Personally, I find great fulfilment in creating solutions that not only tackle the root issue and enhance processes, but are also a genuine joy to use.
             </p>
             <p>
-              At the moment, I'm a Technical Business Analyst at <a href="https://www.appsure.com.au" target="_blank"><b>Appsure</b></a>, working in a close-knit team of seven. As a result, I've become a jack of all trades: leading business analysis, managing clients, digitising complex insurance pricing and product configuration, designing UX/UI for custom screens, driving marketing efforts, and constantly finding new ways to improve our core offering.
+              At the moment, I'm a Technical Business Analyst at <a href="https://www.appsure.com.au" target="_blank" rel="noreferrer"><b>Appsure</b></a>, working in a close-knit team of seven. As a result, I've become a jack of all trades: leading business analysis, managing clients, digitising complex insurance pricing and product configuration, designing UX/UI for custom screens, driving marketing efforts, and constantly finding new ways to improve our core offering.
             </p>
             <p>
               Before I joined the technology industry, I worked in marketing, where I created campaigns and marketing artefacts, as well as in real estate, assisting with sales and property management. Through these experiences, I learned the importance of exposure and design, but also the necessity of having a solid product to back up any claims. This principle applies across all types of offerings, from SaaS to physical goods.
             </p>
               <p>
-              Beyond work, I'm either cooking, leather crafting, gem hunting, or building some more. Maybe one day I'll re-ignite my early tween <a href="https://youtu.be/AgY_ffcXlOQ" target="_blank"><b>VFX</b></a> and <a href="https://youtu.be/CvfrsX2jdbs" target="_blank"><b>stop-motion</b></a> dreams.
+              Beyond work, I'm either cooking, leather crafting, gem hunting, or building some more. Maybe one day I'll re-ignite my early tween <a href="https://youtu.be/AgY_ffcXlOQ" target="_blank" rel="noreferrer"><b>VFX</b></a> and <a href="https://youtu.be/CvfrsX2jdbs" target="_blank" rel="noreferrer"><b>stop-motion</b></a> dreams.
             </p>
           </section>
 
           <section id="projects" className="content-section" ref={sectionRefs.projects}>
-             <a className="project-link">
+             <a href="#portfolio" className="project-link">
             <div className="project-card">
-              <h3>This Portfolio
-              </h3>
+                  <CiUser className="project-icon" />
+              <h3>This Portfolio</h3>
               <p>I wanted to create a casual online portfolio that I can share and refer to, and continuously upgrade over time as I develop new skills.</p>
               <div className="project-tags">
                 <span>React + Vite</span>
@@ -115,6 +116,7 @@ function App() {
 
             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
+                  <CiAlarmOn className="project-icon" />
               <h3>Habit Tracker + Pomodoro Timer
                 <FiArrowUpRight className="external-link-icon" />
               </h3>
@@ -129,6 +131,7 @@ function App() {
 
             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
+                  <CiRuler className="project-icon" />
               <h3>Single-Pass Flush NATO Strap
                 <FiArrowUpRight className="external-link-icon" />
               </h3>
@@ -147,10 +150,10 @@ function App() {
             <p>
               This is the kitchen section. You can write about your hobbies, passions, or anything else you'd like to share. It's a place to show a different side of your personality.
             </p>
-            <p>
+                        <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
-            <p>
+                        <p>
               Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
             </p>
           </section>
