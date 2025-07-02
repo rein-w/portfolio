@@ -121,7 +121,7 @@ function App() {
             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
                   <CiAlarmOn className="project-icon" />
-              <h3>Habit Tracker + Pomodoro Timer
+              <h3>Habit Tracker
                 <FiArrowUpRight className="external-link-icon" />
               </h3>
               <p>As someone who tends to zero in on one thing and lose track of other tasks, I'm creating an web app to help users build and track their daily and weekly habits.</p>
@@ -136,7 +136,7 @@ function App() {
             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
                   <CiRuler className="project-icon" />
-              <h3>Single-Pass Flush NATO Strap
+              <h3>NATO Strap Clasp
                 <FiArrowUpRight className="external-link-icon" />
               </h3>
               <p>As a watch nerd, I really enjoy NATO straps but dislike the excess material. I am designing a clasp system that will create a more flush experience.</p>
