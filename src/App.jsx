@@ -147,10 +147,10 @@ function App() {
 
           <section id="kitchen" className="content-section" ref={sectionRefs.kitchen}>
             <p>
-              This is the kitchen section. You can write about your hobbies, passions, or anything else you'd like to share. It's a place to show a different side of your personality.
+              My main hobby outside of work is cooking. It's a world that branches out endlessly, with recipes that vary across cultures, subcultures, continents, and even small regions. There are countless variations and so much to learn. I'm fascinated by how old and new techniques still coexist today, from the molcajete to bluetooth sous vide.
             </p>
             <p>
-              Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
+              I love curating dishes and menus to challenge myself, often running set menus and banquets for friends and family. These experiences demand a lot of theorising, practical planning, preparation, mise en place, and execution under pressure. Cooking keeps me on my toes and tests both my mind and body. But the end result is always rewarding: serving good food and seeing everyone's smiles.
             </p>
 
 
@@ -158,14 +158,15 @@ function App() {
   {/* Apply both classes here */}
   <div className="project-card kitchen-card">
     <CiBowlNoodles className="project-icon" />
-    <h3>A Featured Recipe
+    <h3>Reinhardt's Kitchen
         <FiArrowUpRight className="external-link-icon" />
     </h3>
-    <p>This is a great place to highlight a specific recipe, a cooking technique you've mastered, or a favorite dish you've made recently.</p>
+    <p>A place to capture my dishes, menus, and events.</p>
   </div>
 </a>
             <p>
-              Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
+              
+Above is a link to my “kitchen” website, where I can experiment more with the front-end design and behaviour. I use this site to share upcoming menus with friends and family before events, and it also serves as an archive of the lunches and dinners I've hosted in the past.
             </p>
           </section>
 

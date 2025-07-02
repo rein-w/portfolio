@@ -290,7 +290,7 @@
 /* --- Footer Icon Styling --- */
 .footer-icon-container {
   text-align: right; /* Center the icon horizontally */
-  padding-top: 5.5rem; /* Add space above and below the icon */
+  padding-top: 3rem; /* Add space above and below the icon */
 }
 
 .footer-icon {
