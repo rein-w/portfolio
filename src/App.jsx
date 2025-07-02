@@ -115,28 +115,28 @@ function App() {
 
             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
-              <h3>Project Title 2
+              <h3>Habit Tracker + Pomodoro Timer
                 <FiArrowUpRight className="external-link-icon" />
               </h3>
-              <p>Another project description goes here. Talk about the challenges and what you learned.</p>
+              <p>As someone who tends to zero in on one thing and lose track of other tasks, I'm creating an web app to help users build and track their daily and weekly habits.</p>
               <div className="project-tags">
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>API</span>
+                <span>React + Vite</span>
+                <span>MongoDB</span>
+                <span>Modular API Framework</span>
               </div>
             </div>
             </a>
 
             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
-              <h3>Project Title 3
+              <h3>Single-Pass Flush NATO Strap
                 <FiArrowUpRight className="external-link-icon" />
               </h3>
-              <p>A brief description of the project, what it does, and the technologies used. Keep it concise but informative.</p>
+              <p>As a watch nerd, I really enjoy NATO straps but dislike the excess material. I am designing a clasp system that will create a more flush experience.</p>
               <div className="project-tags">
-                <span>React</span>
+                <span>Wordpress</span>
                 <span>CSS</span>
-                <span>JavaScript</span>
+                <span>Fusion360</span>
               </div>
             </div>
             </a>
