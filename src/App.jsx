@@ -3,41 +3,80 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { CiUser, CiAlarmOn, CiRuler, CiBowlNoodles } from "react-icons/ci";
 import './App.css';
-
-import footerIcon from './assets/fries-small.png'; 
+import footerIcon from './assets/fries-small.png';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeLink, setActiveLink] = useState('about');
 
-  // Best Practice 1: Group refs into a single object for cleaner access
+  // --- All refs should be defined together at the top ---
   const sectionRefs = {
     about: useRef(null),
     projects: useRef(null),
     kitchen: useRef(null),
   };
+  const rightContainerRef = useRef(null); // Define the ref here
 
-  // Best Practice 2: Memoize the mouse move handler with useCallback for performance
+  // --- All functions should be defined next ---
   const handleMouseMove = useCallback((event) => {
     setMousePosition({ x: event.clientX, y: event.clientY });
-  }, []); // Empty dependency array means this function is created only once
+  }, []);
 
-  useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [handleMouseMove]); // Add handleMouseMove as a dependency
-
-  // Best Practice 3: Simplify the click handler using the new refs object
   const handleLinkClick = (e, section) => {
     e.preventDefault();
-    setActiveLink(section);
     sectionRefs[section].current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
   };
+
+  // --- All useEffect hooks should be defined last, before the return statement ---
+
+  // Mouse move effect
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [handleMouseMove]);
+
+  // IntersectionObserver effect for scroll spying
+  useEffect(() => {
+    const observerOptions = {
+      // **The Fix 1:** Tell the observer that the ".right-container" is the scrollable area.
+      root: rightContainerRef.current,
+      // **The Fix 2:** Create a -1px tall "tripwire" in the vertical center of the container.
+      // An element is "intersecting" the moment it crosses this line.
+      rootMargin: "-50% 0px -50% 0px",
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        // When a section crosses the tripwire, set it as the active link.
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = Object.values(sectionRefs);
+    sections.forEach((ref) => {
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => {
+      sections.forEach((ref) => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      });
+    };
+  }, []); // The empty dependency array ensures this runs only once
+
 
   return (
     <>
@@ -51,7 +90,6 @@ function App() {
         <div className="left-container">
           <h1 className="header">Reinhardt W.</h1>
           <h2 className="subtitle">Technical Business Analyst</h2>
-          {/* Best Practice 4: Use CSS for line breaks instead of <br /> */}
           <p className="subtext">
             I enjoy learning, designing, and building—
             <span className="subtext-line-break">both in the realm of technology and in creating tangible products.</span>
@@ -88,7 +126,7 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="right-container">
+        <div className="right-container" ref={rightContainerRef}>
           <section id="about" className="content-section" ref={sectionRefs.about}>
             <h2 className="mobile-header">About</h2>
             <p>
@@ -149,43 +187,33 @@ function App() {
             </a>
           </section>
 
-<hr className="section-divider" />
+          <hr className="section-divider" />
 
           <section id="kitchen" className="content-section" ref={sectionRefs.kitchen}>
             <h2 className="mobile-header">Kitchen</h2>
             <p>
-              My main hobby outside of work is cooking. It's a world that branches out endlessly, with recipes that vary across cultures, subcultures, continents, and even small regions. There are countless variations and so much to learn. I'm fascinated by how old and new techniques still coexist today, from the molcajete to bluetooth sous vide.
+              My main hobby outside of work is cooking. I love curating dishes and menus to challenge myself, often running set menus and banquets for friends and family. These experiences demand a lot of theorising, practical planning, preparation, mise en place, and execution under pressure. Cooking keeps me on my toes and tests both my mind and body. But the end result is always rewarding: serving good food and seeing everyone's smiles.
             </p>
-            <p>
-              I love curating dishes and menus to challenge myself, often running set menus and banquets for friends and family. These experiences demand a lot of theorising, practical planning, preparation, mise en place, and execution under pressure. Cooking keeps me on my toes and tests both my mind and body. But the end result is always rewarding: serving good food and seeing everyone's smiles.
-            </p>
+            <br></br>
 
- 
-
-<a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
-  {/* Apply both classes here */}
-  <div className="project-card kitchen-card">
-    <CiBowlNoodles className="project-icon" />
-    <h3>Reinhardt's Kitchen
-        <FiArrowUpRight className="external-link-icon" />
-    </h3>
-    <p>A place to capture my dishes, menus, and events. <i>Work in progress.</i></p>
-  </div>
-</a>
-            <p>
-              
-Above is a link to my “kitchen” website, where I can experiment more with the front-end design and behaviour. I use this site to share upcoming menus with friends and family before events, and it also serves as an archive of the lunches and dinners I've hosted in the past.
-            </p>
+            <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
+              <div className="project-card kitchen-card">
+                <CiBowlNoodles className="project-icon" />
+                <h3>Reinhardt's Kitchen
+                    <FiArrowUpRight className="external-link-icon" />
+                </h3>
+                <p>This is where I can experiment more with the front-end design and behaviour. I use this site to share upcoming menus with friends and family before events, and it also serves as an archive of the lunches and dinners I've hosted in the past.</p>
+              </div>
+            </a>
           </section>
 
-<div className="footer-icon-container">
+          <div className="footer-icon-container">
             <img src={footerIcon} alt="Maccas Fries" className="footer-icon" />
           </div>
 
         </div>
       </div>
     </>
-    
   );
 }
 
