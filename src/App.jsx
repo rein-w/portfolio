@@ -149,6 +149,8 @@ function App() {
             </a>
           </section>
 
+<hr className="section-divider" />
+
           <section id="kitchen" className="content-section" ref={sectionRefs.kitchen}>
             <h2 className="mobile-header">Kitchen</h2>
             <p>
@@ -158,6 +160,7 @@ function App() {
               I love curating dishes and menus to challenge myself, often running set menus and banquets for friends and family. These experiences demand a lot of theorising, practical planning, preparation, mise en place, and execution under pressure. Cooking keeps me on my toes and tests both my mind and body. But the end result is always rewarding: serving good food and seeing everyone's smiles.
             </p>
 
+ 
 
 <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
   {/* Apply both classes here */}

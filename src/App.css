@@ -77,6 +77,15 @@
   color: #888;
 }
 
+/* --- Divider Styling --- */
+.section-divider {
+  border: 0; 
+  height: 1px; 
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Add vertical margin to give the divider space */
+  margin: 0 0 6rem 0; /* top, right, bottom, left */
+}
+
 .radial-gradient {
   position: fixed;
   top: 0;
