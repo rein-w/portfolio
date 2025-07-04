@@ -9,28 +9,26 @@ function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeLink, setActiveLink] = useState('about');
 
-  // --- All refs should be defined together at the top ---
+  // Refs for scrolling to sections
   const sectionRefs = {
     about: useRef(null),
     projects: useRef(null),
     kitchen: useRef(null),
   };
-  const rightContainerRef = useRef(null); // Define the ref here
 
-  // --- All functions should be defined next ---
   const handleMouseMove = useCallback((event) => {
     setMousePosition({ x: event.clientX, y: event.clientY });
   }, []);
 
+  // Updated click handler without observer logic
   const handleLinkClick = (e, section) => {
     e.preventDefault();
+    setActiveLink(section); // This now solely controls the active state
     sectionRefs[section].current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
   };
-
-  // --- All useEffect hooks should be defined last, before the return statement ---
 
   // Mouse move effect
   useEffect(() => {
@@ -39,44 +37,6 @@ function App() {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [handleMouseMove]);
-
-  // IntersectionObserver effect for scroll spying
-  useEffect(() => {
-    const observerOptions = {
-      // **The Fix 1:** Tell the observer that the ".right-container" is the scrollable area.
-      root: rightContainerRef.current,
-      // **The Fix 2:** Create a -1px tall "tripwire" in the vertical center of the container.
-      // An element is "intersecting" the moment it crosses this line.
-      rootMargin: "-50% 0px -50% 0px",
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        // When a section crosses the tripwire, set it as the active link.
-        if (entry.isIntersecting) {
-          setActiveLink(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const sections = Object.values(sectionRefs);
-    sections.forEach((ref) => {
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-    });
-
-    return () => {
-      sections.forEach((ref) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
-      });
-    };
-  }, []); // The empty dependency array ensures this runs only once
-
 
   return (
     <>
@@ -126,7 +86,7 @@ function App() {
             </a>
           </div>
         </div>
-        <div className="right-container" ref={rightContainerRef}>
+        <div className="right-container">
           <section id="about" className="content-section" ref={sectionRefs.about}>
             <h2 className="mobile-header">About</h2>
             <p>
