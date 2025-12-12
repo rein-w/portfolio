@@ -142,7 +142,8 @@ function App() {
               <p>A web app designed to help individuals build and maintain daily and weekly habits, particularly for those who tend to hyper-focus and lose track of time or competing tasks. The app combines structured focus tools with wellbeing prompts, including a Pomodoro-based timer that encourages light movement during breaks, reminders for healthy habits, and a personalised performance dashboard that tracks progress and provides motivation over time.</p>
               <div className="project-tags">
                 <span className="tag-in-progress">In Progress</span>
-                <span>React + Vite</span>
+                <span>Next.js</span>
+                <span>Vercel</span>
                 <span>MongoDB</span>
                 <span>Modular API Framework</span>
               </div>
