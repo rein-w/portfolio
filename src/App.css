@@ -235,6 +235,16 @@
   border-radius: 12px;
 }
 
+.project-tags .tag-live {
+  color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.project-tags .tag-in-progress {
+  color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
 /* --- Navigation & Socials --- */
 .navigation-menu {
   display: flex;

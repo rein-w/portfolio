@@ -111,7 +111,24 @@ function App() {
               <h3>This Portfolio</h3>
               <p>I wanted to create a casual online portfolio that I can share and refer to, and continuously upgrade over time as I develop new skills.</p>
               <div className="project-tags">
+                <span className="tag-live">Live</span>
                 <span>React + Vite</span>
+              </div>
+            </div>
+            </a>
+
+            <a href="https://dozylab.com" target="_blank" rel="noreferrer" className="project-link">
+            <div className="project-card">
+                  <CiRuler className="project-icon" />
+              <h3>Dozylab
+                <FiArrowUpRight className="external-link-icon" />
+              </h3>
+              <p>Dozylab is a part-time product venture where I gain hands-on experience across the full product and consumer lifecycle. From early concept sketches and CAD-based design through to manufacturing, branding, marketing, and logistics, I've led the development and launch of two original products. Since launching in January 2025, the project has generated approximately $4,000 in direct-to-consumer sales.</p>
+              <div className="project-tags">
+                <span className="tag-live">Live</span>
+                <span>Wordpress</span>
+                <span>CSS</span>
+                <span>Upgrading to Next.js headless wordpress</span>
               </div>
             </div>
             </a>
@@ -124,24 +141,10 @@ function App() {
               </h3>
               <p>As someone who tends to zero in on one thing and lose track of other tasks, I'm creating an web app to help users build and track their daily and weekly habits.</p>
               <div className="project-tags">
+                <span className="tag-in-progress">In Progress</span>
                 <span>React + Vite</span>
                 <span>MongoDB</span>
                 <span>Modular API Framework</span>
-              </div>
-            </div>
-            </a>
-
-            <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
-            <div className="project-card">
-                  <CiRuler className="project-icon" />
-              <h3>NATO Strap Clasp
-                <FiArrowUpRight className="external-link-icon" />
-              </h3>
-              <p>As a watch nerd, I really enjoy NATO straps but dislike the excess material. I am designing a clasp system that will create a more flush experience.</p>
-              <div className="project-tags">
-                <span>Wordpress</span>
-                <span>CSS</span>
-                <span>Fusion360</span>
               </div>
             </div>
             </a>
@@ -156,7 +159,7 @@ function App() {
             </p>
             <br></br>
 
-            <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
+            <a href="https://rein.my" target="_blank" rel="noreferrer" className="project-link">
               <div className="project-card kitchen-card">
                 <CiBowlNoodles className="project-icon" />
                 <h3>Reinhardt's Kitchen
