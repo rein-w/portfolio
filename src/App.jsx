@@ -136,10 +136,10 @@ function App() {
             <a href="https://github.com/rein-w/" target="_blank" rel="noreferrer" className="project-link">
             <div className="project-card">
                   <CiAlarmOn className="project-icon" />
-              <h3>Habit Tracker
+              <h3>Daily Habit Tracker + Pomodoro Timer
                 <FiArrowUpRight className="external-link-icon" />
               </h3>
-              <p>As someone who tends to zero in on one thing and lose track of other tasks, I'm creating an web app to help users build and track their daily and weekly habits.</p>
+              <p>A web app designed to help individuals build and maintain daily and weekly habits, particularly for those who tend to hyper-focus and lose track of time or competing tasks. The app combines structured focus tools with wellbeing prompts, including a Pomodoro-based timer that encourages light movement during breaks, reminders for healthy habits, and a personalised performance dashboard that tracks progress and provides motivation over time.</p>
               <div className="project-tags">
                 <span className="tag-in-progress">In Progress</span>
                 <span>React + Vite</span>
