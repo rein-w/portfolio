@@ -146,6 +146,7 @@ function App() {
                 <span>Vercel</span>
                 <span>MongoDB</span>
                 <span>Modular API Framework</span>
+                <span>Python Analytics Dashboard</span>
               </div>
             </div>
             </a>
