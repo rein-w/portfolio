@@ -300,7 +300,7 @@ function fillMask(svg,letter,id) {
       else if(path.hasAttribute('transform'))path.removeAttribute('transform');
     });
   }
-  const finalHold=44.1, timelineDuration=48.4, loopSeconds=15;
+  const finalHold=44.1, timelineDuration=48.4, loopSeconds=25;
   function pose(t){
     const closeup=t>=7.05,agencyDone=t>=39;
     finalName.style.visibility=closeup?'visible':'hidden';
