@@ -39,7 +39,7 @@ nav[data-astro-cid-ihkm6num]{display:flex;align-items:center;gap:.8rem;padding:2
   function sync() {
     clearInterval(timer);
     play.textContent = playing ? 'Pause' : 'Play';
-    if (playing && visible && !document.hidden) timer = window.setInterval(advance, 5000);
+    if (playing && visible && !document.hidden) timer = window.setInterval(advance, 4000);
   }
   specimen.querySelector('.controls').hidden = false;
   play.onclick = () => { playing = !playing; sync(); };
