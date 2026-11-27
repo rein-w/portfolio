@@ -169,6 +169,10 @@ function fillMask(svg,letter,id) {
   const crownWitness=make('line',svg,{'data-guide':'crown',x1:505,x2:546,y1:-2,y2:-2,
     stroke:'#ef68ba','stroke-width':1,'stroke-dasharray':'3 3','vector-effect':'non-scaling-stroke'});
   const guides=[...svg.querySelectorAll('[data-guide]')];
+  const sBounds=finalName.children[4].getBBox();
+  const upperSTMarkers=[...svg.querySelectorAll('[data-guide="alignments"] circle')].filter(marker=>
+    marker.cx.baseVal.value>sBounds.x+sBounds.width/2 && marker.cy.baseVal.value<sBounds.y+sBounds.height/2
+  );
   for(const line of svg.querySelectorAll('[data-guide] line,[data-guide] path')){
     line.setAttribute('vector-effect','non-scaling-stroke');
   }
@@ -205,8 +209,11 @@ function fillMask(svg,letter,id) {
     const view=[x-width/2,y-height/2,width,height].join(' ');
     if(svg.getAttribute('viewBox')!==view)svg.setAttribute('viewBox',view);
   }
-  const cue={levels:6.9,measurements:10.1,alignments:13.7,crown:26.65+afterCuts,rails:agencyMorphStart,ton:agencyMorphStart};
+  const cue={levels:6.9,measurements:10.1,alignments:12,crown:26.65+afterCuts,rails:agencyMorphStart,ton:agencyMorphStart};
   function guidePose(t){
+    // Clear the terminals before they move; restore the dots for the full construction view.
+    const markerOpacity=1-ease((t-13.35)/.9)+ease((t-26.35-afterCuts)/.9);
+    for(const marker of upperSTMarkers)marker.style.opacity=markerOpacity;
     for(const group of guides){
       const kind=group.dataset.guide;
       const p=ease((t-cue[kind])/.8);
