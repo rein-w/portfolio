@@ -300,7 +300,7 @@ function fillMask(svg,letter,id) {
       else if(path.hasAttribute('transform'))path.removeAttribute('transform');
     });
   }
-  const finalHold=44.1,cycle=48.4;
+  const finalHold=44.1, timelineDuration=48.4, loopSeconds=15;
   function pose(t){
     const closeup=t>=7.05,agencyDone=t>=39;
     finalName.style.visibility=closeup?'visible':'hidden';
@@ -317,8 +317,8 @@ function fillMask(svg,letter,id) {
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   let frame=0,visible=false,elapsed=0,last=null;
   function tick(now){
-    if(last!==null)elapsed=(elapsed+(now-last)/1000)%cycle;
-    last=now;pose(elapsed);frame=requestAnimationFrame(tick);
+    if(last!==null)elapsed=(elapsed+(now-last)/1000)%loopSeconds;
+    last=now;pose(elapsed*timelineDuration/loopSeconds);frame=requestAnimationFrame(tick);
   }
   function sync(){
     cancelAnimationFrame(frame);last=null;
