@@ -179,7 +179,9 @@ function fillMask(svg,letter,id) {
   const afterCuts=.8*unitsPerSecond;
   const atOvershoot=afterCuts+.6*unitsPerSecond;
   const afterOvershoot=atOvershoot+.6*unitsPerSecond;
-  const afterLockup=afterOvershoot+unitsPerSecond;
+  const agencyMorphStart=32.45+afterOvershoot;
+  const afterAgency=afterOvershoot-unitsPerSecond;
+  const afterLockup=afterAgency+unitsPerSecond;
   const home=[335.8235,82.6795,1];
   const shots=[
     [3.45,7.15,[96,49,4.55]],       // left stems
@@ -188,7 +190,7 @@ function fillMask(svg,letter,id) {
     [18.75+afterCuts,23.15+afterCuts,[457,10,14]],         // right end of the T crossbar: square to rounded
     [26.35+afterCuts,28.05+afterCuts,[525,4,9.0]],      // O crown against cap height
     [30+afterOvershoot,32.15+afterOvershoot,[528,86,3.3]],       // T–O–N and the complete descriptor
-    [39.95+afterOvershoot,42.05+afterOvershoot,home]
+    [39.95+afterAgency,42.05+afterAgency,home]
   ];
   function camera(t){
     let [x,y,zoom]=home;
@@ -203,12 +205,12 @@ function fillMask(svg,letter,id) {
     const view=[x-width/2,y-height/2,width,height].join(' ');
     if(svg.getAttribute('viewBox')!==view)svg.setAttribute('viewBox',view);
   }
-  const cue={levels:6.9,measurements:10.1,alignments:13.7,crown:26.65+afterCuts,rails:36.35+afterOvershoot,ton:36.05+afterOvershoot};
+  const cue={levels:6.9,measurements:10.1,alignments:13.7,crown:26.65+afterCuts,rails:agencyMorphStart,ton:agencyMorphStart};
   function guidePose(t){
     for(const group of guides){
       const kind=group.dataset.guide;
       const p=ease((t-cue[kind])/.8);
-      group.style.opacity=p*(1-ease((t-(group===crownWitness?29.85+afterOvershoot:42.25+afterOvershoot))/1.2));
+      group.style.opacity=p*(1-ease((t-(group===crownWitness?29.85+afterOvershoot:42.25+afterAgency))/1.2));
       const hidden=(100*(1-p)).toFixed(1)+'%';
       group.style.clipPath=p===0||p===1?'none':kind==='ton'||kind==='rails'
         ?'inset(-4px -4px '+hidden+' -4px) fill-box'
@@ -217,7 +219,7 @@ function fillMask(svg,letter,id) {
   }
 
   const nameMoves=[[3.45,7.05]];
-  const typeMoves=[[32.45+afterOvershoot,34.1+afterOvershoot],[34.35+afterOvershoot,35.9+afterOvershoot]];
+  const typeMoves=[[agencyMorphStart,34.1+afterOvershoot],[34.35+afterOvershoot,35.9+afterOvershoot]];
   const detailMoves=[
     [7.4,9.15],     // added weight
     [9.6,11.55],    // taper, flare and shoulder fullness
@@ -259,16 +261,16 @@ function fillMask(svg,letter,id) {
   // Hold the A in place and let the Y reach the final N rail as the tracking opens.
   const trackingStep=5*finalAgency.transform.baseVal.consolidate().matrix.a;
   function alignDescriptor(t){
-    const unset=ease((t-afterOvershoot-32.45)/1.65)*(1-ease((t-afterOvershoot-37.35)/1.6));
+    const unset=ease((t-agencyMorphStart)/1.65)*(1-ease((t-afterAgency-37.35)/1.6));
     agency.forEach(({path},i)=>{
       const dx=-i*trackingStep*unset;
       if(dx)path.setAttribute('transform','translate('+dx+' 0)');
       else if(path.hasAttribute('transform'))path.removeAttribute('transform');
     });
   }
-  const finalHold=44.1+afterOvershoot, loopSeconds=28;
+  const finalHold=44.1+afterAgency, loopSeconds=27;
   function pose(t){
-    const closeup=t>=7.05,agencyDone=t>=39+afterOvershoot;
+    const closeup=t>=7.05,agencyDone=t>=39+afterAgency;
     finalName.style.visibility=closeup?'visible':'hidden';
     finalAgency.style.visibility=agencyDone?'visible':'hidden';
     for(const glyph of name)glyph.path.style.display=closeup?'none':'';
