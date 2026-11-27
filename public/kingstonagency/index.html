@@ -222,7 +222,8 @@ function fillMask(svg,letter,id) {
     [19.45,20.65,[347,49,4.55]],    // facing cuts
     [22.15,23.15,[374,10,7.6]],     // corner radii
     [25.05,27.05,[525,4,9.0]],      // O crown against cap height
-    [30,32.55,home]
+    [30,32.15,[528,86,3.3]],       // T–O–N and the complete descriptor
+    [39.95,42.05,home]
   ];
   function camera(t){
     let [x,y,zoom]=home;
@@ -237,12 +238,12 @@ function fillMask(svg,letter,id) {
     const view=[x-width/2,y-height/2,width,height].join(' ');
     if(svg.getAttribute('viewBox')!==view)svg.setAttribute('viewBox',view);
   }
-  const cue={levels:6.9,measurements:10.1,alignments:13.7,crown:26.65,rails:31.2,ton:31.7};
+  const cue={levels:6.9,measurements:10.1,alignments:13.7,crown:26.65,rails:36.35,ton:36.05};
   function guidePose(t){
     for(const group of guides){
       const kind=group.dataset.guide;
       const p=ease((t-cue[kind])/.8);
-      group.style.opacity=p*(1-ease((t-(group===crownWitness?29.45:36.5))/1.2));
+      group.style.opacity=p*(1-ease((t-(group===crownWitness?29.45:42.25))/1.2));
       const hidden=(100*(1-p)).toFixed(1)+'%';
       group.style.clipPath=p===0||p===1?'none':kind==='ton'||kind==='rails'
         ?'inset(-4px -4px '+hidden+' -4px) fill-box'
@@ -251,7 +252,7 @@ function fillMask(svg,letter,id) {
   }
 
   const nameMoves=[[3.45,5.2],[5.35,7.05]];
-  const typeMoves=[[3.45,5.2],[32.75,34.2],[34.55,36.0]];
+  const typeMoves=[[3.45,5.2],[32.45,34.1],[34.35,35.9]];
   const detailMoves=[
     [7.4,9.15],     // added weight
     [9.6,11.55],    // taper, flare and shoulder fullness
@@ -288,9 +289,20 @@ function fillMask(svg,letter,id) {
       path.setAttribute('d',d.join(''));
     }
   }
-  const finalHold=38.5,cycle=42.65;
+  // Quilon's saved +50 tracking adds five font units between consecutive letters.
+  // Hold the A in place and let the Y reach the final N rail as the tracking opens.
+  const trackingStep=5*finalAgency.transform.baseVal.consolidate().matrix.a;
+  function alignDescriptor(t){
+    const unset=ease((t-32.45)/1.65)*(1-ease((t-37.35)/1.6));
+    agency.forEach(({path},i)=>{
+      const dx=-i*trackingStep*unset;
+      if(dx)path.setAttribute('transform','translate('+dx+' 0)');
+      else if(path.hasAttribute('transform'))path.removeAttribute('transform');
+    });
+  }
+  const finalHold=44.1,cycle=48.4;
   function pose(t){
-    const closeup=t>=7.05,agencyDone=t>=36;
+    const closeup=t>=7.05,agencyDone=t>=39;
     finalName.style.visibility=closeup?'visible':'hidden';
     finalAgency.style.visibility=agencyDone?'visible':'hidden';
     for(const glyph of name)glyph.path.style.display=closeup?'none':'';
@@ -298,9 +310,9 @@ function fillMask(svg,letter,id) {
     if(closeup)detail(t);
     else {morph(name,t,nameMoves);drawOpening(name,t,0)}
     openBowl(t);
-    if(!agencyDone){morph(agency,t,typeMoves);drawOpening(agency,t,1)}
+    if(!agencyDone){morph(agency,t,typeMoves);drawOpening(agency,t,1);alignDescriptor(t)}
     camera(t);guidePose(t);
-    svg.style.opacity=1-ease((t-41.05)/1.25);
+    svg.style.opacity=1-ease((t-46.8)/1.25);
   }
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   let frame=0,visible=false,elapsed=0,last=null;
