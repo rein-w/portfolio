@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 494 163" fill="#16223a">
+  <title>Kingston Agency — flared serif with centred descriptor</title>
+  <path fill-rule="evenodd" id="glyph-1-K" d="M1 0 H18 C16 6 16 12 16 21 V51 C21 50 24 48 29 43 L60 10 C64 6 66 3 66 0 H80 L36 47 L72 89 C76 94 79 97 83 100 H63 L26 55 C22 54 19 56 16 59 V81 C16 90 17 96 18 100 H1 C3 92 3 88 3 80 V20 C3 10 3 6 1 0Z" transform="translate(3 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-2-i" d="M1 32 L15 30 V83 C15 92 15 96 17 100 H1 C3 93 3 87 3 79 V49 C3 41 3 36 1 32Z M1 10 C1 5 4 2 9 2 C14 2 17 5 17 10 C17 14 14 18 9 18 C4 18 1 15 1 10Z" transform="translate(90 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-3-n" d="M0 32 L14 30 V45 C20 35 29 30 40 30 C54 30 62 39 62 55 V82 C62 91 62 96 64 100 H48 C50 93 50 88 50 81 V57 C50 44 46 39 37 39 C28 39 20 44 15 52 V82 C15 90 15 95 17 100 H1 C3 92 3 87 3 80 V48 C3 40 2 35 0 32Z" transform="translate(114 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-4-g" d="M49 36 L60 30 H62 V92 C62 113 49 127 27 127 C18 127 10 125 3 122 L5 112 C12 117 19 121 28 121 C43 121 50 112 50 95 V88 C44 95 37 99 27 99 C10 99 0 85 0 66 C0 45 13 30 32 30 C39 30 44 32 49 36Z M50 46 C46 39 40 36 33 36 C20 36 13 48 13 65 C13 81 19 91 31 91 C39 91 46 86 50 78Z" transform="translate(185 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-5-s" d="M45 33 L44 46 C37 39 31 36 24 36 C15 36 10 40 10 46 C10 52 16 55 27 60 C42 66 49 71 49 82 C49 94 38 102 23 102 C14 102 6 100 0 97 L1 83 C9 92 16 96 25 96 C34 96 39 92 39 86 C39 79 33 76 19 70 C7 65 1 60 1 50 C1 38 11 30 26 30 C33 30 39 31 45 33Z" transform="translate(255 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-6-t" d="M0 33 C8 31 15 24 19 17 H22 V32 H40 L39 39 H22 V81 C22 90 25 94 32 94 C36 94 39 93 42 91 L41 98 C37 100 33 102 28 102 C15 102 10 94 10 81 V39 H0Z" transform="translate(309 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-7-o" d="M34 30 C53 30 65 44 65 65 C65 86 52 102 31 102 C12 102 0 88 0 67 C0 45 14 30 34 30Z M32 36 C20 36 13 48 13 65 C13 83 20 96 33 96 C46 96 52 83 52 68 C52 49 45 36 32 36Z" transform="translate(355 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-8-n" d="M0 32 L14 30 V45 C20 35 29 30 40 30 C54 30 62 39 62 55 V82 C62 91 62 96 64 100 H48 C50 93 50 88 50 81 V57 C50 44 46 39 37 39 C28 39 20 44 15 52 V82 C15 90 15 95 17 100 H1 C3 92 3 87 3 80 V48 C3 40 2 35 0 32Z" transform="translate(426 2) scale(1)" />
+  <path fill-rule="evenodd" id="glyph-9-A" d="M0 100 L31 0 H44 L76 100 H63 L54 73 H21 L13 100Z M24 62 H51 L37 17Z" transform="translate(173.327 137) scale(0.235)" />
+  <path fill-rule="evenodd" id="glyph-10-G" d="M78 12 L71 21 C63 14 56 11 46 11 C25 11 13 27 13 51 C13 76 25 90 46 90 C55 90 63 87 69 83 V58 H46 V47 H81 V89 C71 97 59 102 45 102 C17 102 0 82 0 51 C0 21 18 0 46 0 C60 0 70 4 78 12Z" transform="translate(199.412 137) scale(0.235)" />
+  <path fill-rule="evenodd" id="glyph-11-E" d="M0 0 H60 V11 H13 V44 H53 V55 H13 V89 H60 V100 H0Z" transform="translate(227.142 137) scale(0.235)" />
+  <path fill-rule="evenodd" id="glyph-12-N" d="M0 0 H13 L62 78 V0 H75 V100 H62 L13 22 V100 H0Z" transform="translate(249.702 137) scale(0.235)" />
+  <path fill-rule="evenodd" id="glyph-13-C" d="M76 12 L69 21 C62 14 55 11 45 11 C25 11 13 28 13 51 C13 75 24 90 45 90 C56 90 64 86 71 78 L78 87 C69 97 58 102 44 102 C17 102 0 82 0 51 C0 21 18 0 45 0 C58 0 69 4 76 12Z" transform="translate(275.787 137) scale(0.235)" />
+  <path fill-rule="evenodd" id="glyph-14-Y" d="M0 0 H15 L39 44 L64 0 H78 L46 56 V100 H33 V56Z" transform="translate(302.342 137) scale(0.235)" />
+</svg>
