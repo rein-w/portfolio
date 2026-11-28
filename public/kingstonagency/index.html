@@ -121,6 +121,16 @@ function fillMask(svg,letter,id) {
   const upperSTMarkers=[...svg.querySelectorAll('[data-guide="alignments"] circle')].filter(marker=>
     marker.cx.baseVal.value>sBounds.x+sBounds.width/2 && marker.cy.baseVal.value<sBounds.y+sBounds.height/2
   );
+  const upperSTHeights=new Set(upperSTMarkers.map(dot=>dot.cy.baseVal.value));
+  const upperSTHorizontals=[...svg.querySelectorAll('[data-guide="alignments"] line')].filter(line=>
+    line.y1.baseVal.value===line.y2.baseVal.value && upperSTHeights.has(line.y1.baseVal.value)
+  );
+  const upperSTGuides=[...upperSTMarkers,...upperSTHorizontals];
+  // The construction dots sit precisely on the two finished terminal faces.
+  const terminalTargets=make('g',svg,{'aria-hidden':'true',stroke:'#ff83cd','stroke-width':1.2,'stroke-dasharray':'2 3'});
+  for(const x of new Set(upperSTMarkers.map(dot=>dot.cx.baseVal.value))){
+    make('line',terminalTargets,{x1:x,x2:x,y1:-6,y2:21,'vector-effect':'non-scaling-stroke'});
+  }
   for(const line of svg.querySelectorAll('[data-guide] line,[data-guide] path')){
     line.setAttribute('vector-effect','non-scaling-stroke');
   }
@@ -161,7 +171,8 @@ function fillMask(svg,letter,id) {
   function guidePose(t){
     // Clear the terminals before they move; restore the dots for the full construction view.
     const markerOpacity=1-ease((t-13.35)/.9)+ease((t-26.35-afterCuts)/.9);
-    for(const marker of upperSTMarkers)marker.style.opacity=markerOpacity;
+    for(const guide of upperSTGuides)guide.style.opacity=markerOpacity;
+    terminalTargets.style.opacity=ease((t-14.25)/.8)*(1-ease((t-19.95)/.8));
     for(const group of guides){
       const kind=group.dataset.guide;
       const p=ease((t-cue[kind])/.8);
