@@ -145,9 +145,10 @@ function fillMask(svg,letter,id) {
   const afterAgency=afterOvershoot-unitsPerSecond;
   const afterLockup=afterAgency+unitsPerSecond;
   const home=[335.8235,82.6795,1];
+  const panToST=11.9;
   const shots=[
     [3.45,7.15,[96,49,4.55]],       // left stems
-    [11.9,14.05,[374,13,6.5]],      // S upper terminal and T left arm
+    [panToST,14.05,[374,13,6.5]],      // S upper terminal and T left arm
     [16.15,17.85,[388,8,8]],       // upper S and T terminal cuts
     [18.75+afterCuts,23.15+afterCuts,[461,8,17.5]],         // right end of the T crossbar: square to rounded
     [26.35+afterCuts,28.05+afterCuts,[525,4,9.0]],      // O crown against cap height
@@ -176,7 +177,8 @@ function fillMask(svg,letter,id) {
     for(const group of guides){
       const kind=group.dataset.guide;
       const p=ease((t-cue[kind])/.8);
-      group.style.opacity=p*(1-ease((t-(group===crownWitness?29.85+afterOvershoot:42.25+afterAgency))/1.2));
+      const fadeStart=kind==='measurements'?panToST:group===crownWitness?29.85+afterOvershoot:42.25+afterAgency;
+      group.style.opacity=p*(1-ease((t-fadeStart)/1.2));
       const hidden=(100*(1-p)).toFixed(1)+'%';
       group.style.clipPath=p===0||p===1?'none':kind==='ton'||kind==='rails'
         ?'inset(-4px -4px '+hidden+' -4px) fill-box'
